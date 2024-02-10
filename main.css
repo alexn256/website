@@ -61,6 +61,11 @@ a {
     border-radius: 5px;
     font-size: small;
     cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.social-item:active {
+    transform: scale(1.2);
 }
 
 .social-item img {
