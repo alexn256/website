@@ -214,69 +214,6 @@ class TypingEffect {
     }
 }
 
-// Cursor Trail Effect
-class CursorTrail {
-    constructor() {
-        this.dots = [];
-        this.mouse = { x: 0, y: 0 };
-        this.init();
-    }
-
-    init() {
-        // Only add cursor trail on desktop
-        if (window.innerWidth < 768) return;
-
-        // Create trail dots
-        for (let i = 0; i < 12; i++) {
-            const dot = document.createElement('div');
-            dot.className = 'cursor-dot';
-            dot.style.cssText = `
-                position: fixed;
-                width: 4px;
-                height: 4px;
-                background: var(--accent-primary);
-                border-radius: 50%;
-                pointer-events: none;
-                z-index: 9999;
-                opacity: 0;
-                transition: opacity 0.3s ease;
-            `;
-            document.body.appendChild(dot);
-            this.dots.push({
-                element: dot,
-                x: 0,
-                y: 0,
-                delay: i * 0.05
-            });
-        }
-
-        // Track mouse movement
-        document.addEventListener('mousemove', (e) => {
-            this.mouse.x = e.clientX;
-            this.mouse.y = e.clientY;
-        });
-
-        // Animate dots
-        this.animate();
-    }
-
-    animate() {
-        this.dots.forEach((dot, index) => {
-            const targetX = this.mouse.x - 2;
-            const targetY = this.mouse.y - 2;
-            
-            dot.x += (targetX - dot.x) * (0.3 - index * 0.02);
-            dot.y += (targetY - dot.y) * (0.3 - index * 0.02);
-            
-            dot.element.style.left = dot.x + 'px';
-            dot.element.style.top = dot.y + 'px';
-            dot.element.style.opacity = Math.max(0, 1 - index * 0.1);
-        });
-        
-        requestAnimationFrame(() => this.animate());
-    }
-}
-
 // Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     new ThemeManager();
@@ -286,7 +223,6 @@ document.addEventListener('DOMContentLoaded', () => {
     new NavbarScroll();
     new ParallaxEffect();
     new TypingEffect();
-    new CursorTrail();
 
     // Add loading animation
     document.body.style.opacity = '0';
@@ -294,17 +230,6 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.style.transition = 'opacity 0.5s ease';
         document.body.style.opacity = '1';
     }, 100);
-});
-
-// Handle window resize
-window.addEventListener('resize', () => {
-    // Recalculate any size-dependent features
-    if (window.innerWidth < 768) {
-        // Remove cursor trail on mobile
-        document.querySelectorAll('.cursor-dot').forEach(dot => {
-            dot.remove();
-        });
-    }
 });
 
 // Add some Easter eggs
