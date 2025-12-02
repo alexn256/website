@@ -1,0 +1,20 @@
+{
+  "name": "personal-website",
+  "version": "1.0.0",
+  "description": "Modern Interactive Personal Website",
+  "main": "src/js/index.js",
+  "scripts": {
+    "dev": "npx live-server public",
+    "start": "npx live-server public"
+  },
+  "keywords": [
+    "personal",
+    "website",
+    "portfolio"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}
