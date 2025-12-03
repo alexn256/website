@@ -3,3 +3,26 @@
 .env
 node_modules
 package-lock.json
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Build outputs
+dist
+dist-ssr
+*.local
+
+# Editor
+.vscode/*
+!.vscode/extensions.json
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Old vanilla JS version (backup)
+public/

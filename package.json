@@ -1,20 +1,37 @@
 {
   "name": "personal-website",
   "version": "1.0.0",
-  "description": "Modern Interactive Personal Website",
-  "main": "src/js/index.js",
+  "type": "module",
+  "description": "Modern Interactive Personal Website with React",
   "scripts": {
-    "dev": "npx live-server public",
-    "start": "npx live-server public"
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@typescript-eslint/eslint-plugin": "^8.15.0",
+    "@typescript-eslint/parser": "^8.15.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "eslint": "^9.15.0",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "eslint-plugin-react-refresh": "^0.4.14",
+    "typescript": "^5.6.3",
+    "vite": "^6.0.3"
   },
   "keywords": [
     "personal",
     "website",
-    "portfolio"
+    "portfolio",
+    "react",
+    "typescript"
   ],
-  "author": "",
-  "license": "MIT",
-  "devDependencies": {
-    "live-server": "^1.2.2"
-  }
+  "author": "Alexander Naumov",
+  "license": "MIT"
 }
