@@ -1,0 +1,12 @@
+[build]
+  # Directory with the static files
+  publish = "public"
+
+  # Build command (not needed for static site, but can be used if you add a build step)
+  command = "echo 'No build needed - static site'"
+
+# Redirect rules (optional)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
